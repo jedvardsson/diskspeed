@@ -15,15 +15,15 @@ Examples:
 
     # Test disk speed in current directory
     $ $PROG
-    Writing .: 251658240 bytes (252 MB) copied, 0.873465 s, 288 MB/s
-    Reading .: 251658240 bytes (252 MB) copied, 0.0401338 s, 6.3 GB/s    
+    Writing .: 251658240 bytes (252 MB) copied, 1.91234 s, 132 MB/s
+    Reading .: 251658240 bytes (252 MB) copied, 0.0470604 s, 5.3 GB/s
 
     # Test disk speed in two folders
     $ $PROG /dir/encrypted /dir/not_encrypted
-    Writing /dir/encrypted: 251658240 bytes (252 MB) copied, 0.816196 s, 308 MB/s
-    Reading /dir/encrypted: 251658240 bytes (252 MB) copied, 0.0390377 s, 6.4 GB/s
-    Writing /dir/not_encrypted: 251658240 bytes (252 MB) copied, 0.45864 s, 549 MB/s
-    Reading /dir/not_encrypted: 251658240 bytes (252 MB) copied, 0.0466736 s, 5.4 GB/s
+    Writing /dir/encrypted: 251658240 bytes (252 MB) copied, 1.39117 s, 181 MB/s
+    Reading /dir/encrypted: 251658240 bytes (252 MB) copied, 0.0474908 s, 5.3 GB/s
+    Writing /dir/not_encrypted: 251658240 bytes (252 MB) copied, 0.747143 s, 337 MB/s
+    Reading /dir/not_encrypted: 251658240 bytes (252 MB) copied, 0.046063 s, 5.5 GB/s
 EOF
     exit;
 }
@@ -52,7 +52,7 @@ for output_dir in $output_dirs; do
     	exit 1
     fi
 
-    dd_args="bs=8k count=30k"
+    dd_args="conv=fdatasync bs=8k count=30k"
 
     echo -en "Writing $output_dir: "
     dd if=/dev/zero of=$output_file $dd_args 2>&1|tail -1
