@@ -14,13 +14,16 @@ Usage: $PROG [options] directory...
 Examples:
 
     # Test disk speed in current directory
-    $PROG
-
-    # Test disk speed in users home directory
-    $PROG \$HOME
+    $ $PROG
+    Writing .: 251658240 bytes (252 MB) copied, 0.873465 s, 288 MB/s
+    Reading .: 251658240 bytes (252 MB) copied, 0.0401338 s, 6.3 GB/s    
 
     # Test disk speed in two folders
-    $PROG /dir/encrypted /dir/not_encrypted
+    $ $PROG /dir/encrypted /dir/not_encrypted
+    Writing /dir/encrypted: 251658240 bytes (252 MB) copied, 0.816196 s, 308 MB/s
+    Reading /dir/encrypted: 251658240 bytes (252 MB) copied, 0.0390377 s, 6.4 GB/s
+    Writing /dir/not_encrypted: 251658240 bytes (252 MB) copied, 0.45864 s, 549 MB/s
+    Reading /dir/not_encrypted: 251658240 bytes (252 MB) copied, 0.0466736 s, 5.4 GB/s
 EOF
     exit;
 }
